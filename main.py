@@ -10,10 +10,15 @@ class Game:
         self.screen = pygame.display.set_mode(settings.SCREEN_SIZE)
 
     def start(self):
-        while 1:
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    sys.exit()
+        while 1:  #main loop of the game
+            self.quit()
+
+    def quit(self):  #fonction which manages the quit button
+        for event in pygame.event.get(pygame.QUIT):
+            sys.exit()
+
+    def moves(self):
+        
 
 def main():
     game = Game()
