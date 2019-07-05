@@ -12,13 +12,22 @@ class Game:
     def start(self):
         while 1:  #main loop of the game
             self.quit()
+            self.moves()
 
     def quit(self):  #fonction which manages the quit button
         for event in pygame.event.get(pygame.QUIT):
             sys.exit()
 
     def moves(self):
-        
+        for event in pygame.event.get(pygame.KEYDOWN):
+            if event.key == pygame.K_DOWN:
+                print("On va en bas")
+            elif event.key == pygame.K_UP:
+                print("On va en haut")
+            elif event.key == pygame.K_LEFT:
+                print("On va a gauche")
+            else:
+                print("On va a droite")
 
 def main():
     game = Game()
