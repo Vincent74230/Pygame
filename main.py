@@ -8,6 +8,10 @@ class Game:
     def __init__(self):
         pygame.init()
         self.screen = pygame.display.set_mode(settings.SCREEN_SIZE)
+        self.macgyver = pygame.image.load("MacGyver.png")
+        #self.rect = self.macgyver.get_rect()
+        self.screen.blit(self.macgyver,(0,0))
+        pygame.display.update()
 
     def start(self):
         while 1:  #main loop of the game
