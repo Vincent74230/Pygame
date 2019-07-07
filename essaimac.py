@@ -1,4 +1,3 @@
-
 import pygame
 pygame.init()
 
@@ -6,7 +5,8 @@ SIZE = (640,480)
 x=0
 y=0
 x_change = 0
-colour = (50,50,50)
+y_change = 0
+black = (0,0,0)
 
 screen = pygame.display.set_mode(SIZE)
 pygame.display.set_caption('MacGyver')
@@ -25,18 +25,26 @@ while launched:
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_RIGHT:
                 x_change = 5
-                #x += x_change
             elif event.key == pygame.K_LEFT:
                 x_change = -5
-                #x -= x_change
+            elif event.key == pygame.K_UP:
+                y_change = -5
+            elif event.key == pygame.K_DOWN:
+                y_change = 5
         if event.type == pygame.KEYUP:
             if event.type == pygame.K_LEFT or pygame.K_RIGHT:
                 x_change = 0
+            if event.type == pygame.K_UP or pygame.K_DOWN:
+                y_change = 0
+
      
     x += x_change
-    pygame.display.update()
-    clock.tick(60)
+    y += y_change
+    screen.fill(black)
     mac(x,y)
+    pygame.display.update()
+    clock.tick(40)
+    
 
 pygame.quit()
 quit()

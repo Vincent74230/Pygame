@@ -1,25 +1,31 @@
-import sys
 import pygame
 import settings
 x = 0
 y = 0
+x_change =0
+y_change =0
+black = (0,0,0)
+
 
 class Game:
     def __init__(self):
         pygame.init()
         self.screen = pygame.display.set_mode(settings.SCREEN_SIZE)
         self.macgyver = pygame.image.load("MacGyver.png")
+        self.launched = True
+
+
+    def mac(self,x,y):
         self.screen.blit(self.macgyver,(x,y))
         pygame.display.update()
 
-    def start(self):
-        while 1:  #main loop of the game
-            self.quit()
-            self.moves()
 
-    def quit(self):  #fonction which manages the quit button
-        for event in pygame.event.get(pygame.QUIT):
-            sys.exit()
+    def quit(self):  #fonction that manages the exit button
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                self.launched = False
+                
+
 
     def moves(self):
         for event in pygame.event.get(pygame.KEYDOWN):
@@ -31,12 +37,14 @@ class Game:
                 print("On va a gauche")
             else:
                 print("On va a droite")
-                
+
 
 def main():
     game = Game()
-    game.start()
-    
+    while game.launched:
+        game.quit()
+        game.mac(x,y)
+    pygame.quit()
 
 
 if __name__ == "__main__":
