@@ -1,5 +1,7 @@
 import pygame
+import settings
 pygame.init()
+
 
 SIZE = (640,480)
 x=0
@@ -12,7 +14,8 @@ screen = pygame.display.set_mode(SIZE)
 pygame.display.set_caption('MacGyver')
 clock = pygame.time.Clock()
 
-macimage = pygame.image.load("MacGyver.png")
+macimage = pygame.image.load(settings.MACIMG).convert()
+fond = pygame.image.load(settings.BACKGROUND).convert()
 
 def mac(x,y):
     screen.blit(macimage,(x,y))
@@ -40,7 +43,8 @@ while launched:
      
     x += x_change
     y += y_change
-    screen.fill(black)
+    
+    screen.blit(fond,(0,0))
     mac(x,y)
     pygame.display.update()
     clock.tick(40)
