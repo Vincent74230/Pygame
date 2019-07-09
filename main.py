@@ -4,6 +4,44 @@ black = (0,0,0)
 clock = pygame.time.Clock()
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+'''
 class Game:
     """ Class which contains all the attributes of the game"""
     def __init__(self):
@@ -49,3 +87,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+'''

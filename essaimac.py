@@ -1,54 +1,76 @@
 import pygame
 import settings
+import clas
 pygame.init()
-
-
-SIZE = (640,480)
-x=0
-y=0
-x_change = 0
-y_change = 0
 black = (0,0,0)
 
-screen = pygame.display.set_mode(SIZE)
-pygame.display.set_caption('MacGyver')
-clock = pygame.time.Clock()
 
-macimage = pygame.image.load(settings.MACIMG).convert()
-fond = pygame.image.load(settings.BACKGROUND).convert()
+screen = pygame.display.set_mode(settings.SCREEN_SIZE)
+background = pygame.image.load(settings.BACKGROUND).convert()
 
-def mac(x,y):
-    screen.blit(macimage,(x,y))
+l = clas.Level()
+screen.blit(background,(0,0))
+l.disp_level(screen)
+
+pygame.display.update()
 
 launched = True
 while launched:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             launched = False
-        if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_RIGHT:
-                x_change = 5
-            elif event.key == pygame.K_LEFT:
-                x_change = -5
-            elif event.key == pygame.K_UP:
-                y_change = -5
-            elif event.key == pygame.K_DOWN:
-                y_change = 5
-        if event.type == pygame.KEYUP:
-            if event.type == pygame.K_LEFT or pygame.K_RIGHT:
-                x_change = 0
-            if event.type == pygame.K_UP or pygame.K_DOWN:
-                y_change = 0
-
-     
-    x += x_change
-    y += y_change
-    
-    screen.blit(fond,(0,0))
-    mac(x,y)
-    pygame.display.update()
-    clock.tick(40)
-    
 
 pygame.quit()
-quit()
+
+
+
+"""
+screen = pygame.display.set_mode(settings.SCREEN_SIZE)
+pygame.key.set_repeat(30,10)
+
+background = pygame.image.load(settings.BACKGROUND).convert()
+screen.blit(background,(0,0))
+
+MacGyver = pygame.image.load(settings.MACIMG).convert_alpha()
+rect_mac = MacGyver.get_rect()
+
+my_rect = pygame.Rect(200,0,300,300)
+pygame.draw.rect(screen,black,my_rect)
+
+screen.blit(MacGyver,rect_mac)
+
+
+pygame.display.update()
+
+launched = True
+while launched:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            launched = False
+        if rect_mac.colliderect(my_rect):
+            rect_mac = rect_mac.move(0,0)
+        else:
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_LEFT:
+                    rect_mac = rect_mac.move(-1,0)
+                elif event.key == pygame.K_RIGHT:
+                    rect_mac = rect_mac.move(1,0)
+                elif event.key == pygame.K_UP:
+                    rect_mac = rect_mac.move(0,1)
+                elif event.key == pygame.K_DOWN:
+                    rect_mac = rect_mac.move(0,1)
+
+
+    screen.blit(background,(0,0))
+    screen.blit(MacGyver,rect_mac)
+    pygame.draw.rect(screen,black,my_rect)
+    pygame.display.update()
+
+
+
+        
+
+
+pygame.quit()
+
+"""
