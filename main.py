@@ -1,90 +1,43 @@
 import pygame
 import settings
+import clas
+pygame.init()
 black = (0,0,0)
-clock = pygame.time.Clock()
 
 
+screen = pygame.display.set_mode(settings.SCREEN_SIZE)
+background = pygame.image.load(settings.BACKGROUND).convert()
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-'''
-class Game:
-    """ Class which contains all the attributes of the game"""
-    def __init__(self):
-        pygame.init()
-        self.screen = pygame.display.set_mode(settings.SCREEN_SIZE)
-        self.macgyver = pygame.image.load(settings.MACIMG)
-        self.launched = True
-
-
-    def mac(self,tupl):
-        self.screen.blit(self.macgyver,tupl)
-        #self.screen.fill(black)
-        pygame.display.update()
-
-
-    def quit(self):  #fonction that manages the exit button
-            if event.type == pygame.QUIT:
-                self.launched = False
-                
+l = clas.Level()
+mac = clas.MacGyver()
 """
-    def moves(self):
-        x,y = 0,0
-        x_change,y_change = 0,0
-        if event.key == pygame.KEYDOWN:
+screen.blit(background,(0,0))
+l.disp_level(screen)
+mac.moves(screen)
+"""
+pygame.display.update()
+
+launched = True
+while launched:
+    
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            launched = False
+        elif event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_RIGHT:
+                mac.moves('right')
+            if event.key == pygame.K_LEFT:
+                mac.moves ('left')
             if event.key == pygame.K_UP:
-                y_change = -5
-            elif event.key == pygame.K_DOWN:
-                y_change = 5
-        y += y_change
-        return x,y
-   """     
+                mac.moves('up')
+            if event.key == pygame.K_DOWN:
+                mac.moves ('down')
+
+    pygame.time.Clock().tick(30)                
+    screen.blit(background,(0,0))
+    l.disp_level(screen)
+    screen.blit(mac.mac,(mac.x,mac.y))
+    pygame.display.update()
 
 
-def main():
-    game = Game()
-    while game.launched:
-        for event in pygame.event.get():
-            game.quit()
-            game.mac(0,0)
-        
-    pygame.quit()
-
-
-if __name__ == "__main__":
-    main()
-'''
+pygame.quit()
