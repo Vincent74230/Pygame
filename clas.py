@@ -12,6 +12,7 @@ class Level:
         self.needle_pixel_x=0
         self.needle_pixel_y=0
         self.needle = pygame.image.load(settings.NEEDLE).convert_alpha()
+        self.object_found = False
 
     def disp_level(self,screen):
         wall = pygame.image.load(settings.WALL).convert()
@@ -32,21 +33,21 @@ class Level:
                 square_number += 1
             line_number += 1
 
-    def rand_objects(self,screen):
+    def rand_objects(self):
         while self.level[self.needle_y][self.needle_x] != 0:
             self.needle_x = random.randint (0,14)
             self.needle_y = random.randint (0,14)
         self.needle_pixel_x = self.needle_x * settings.SPRITE_SIZE
         self.needle_pixel_y = self.needle_y * settings.SPRITE_SIZE
-        screen.blit(self.needle,(self.needle_pixel_x,self.needle_pixel_y))
+        #screen.blit(self.needle,(self.needle_pixel_x,self.needle_pixel_y))
 
     def disp_objects(self,screen):
-        
+
         screen.blit(self.needle,(13*settings.SPRITE_SIZE,0))
 
 class MacGyver:
     def __init__(self):
-        self.mac = pygame.image.load(settings.MACIMG).convert_alpha()
+        self.macimg = pygame.image.load(settings.MACIMG).convert_alpha()
         self.level = settings.LEVEL
         self.sprite_x = 0
         self.sprite_y = 0
@@ -82,7 +83,7 @@ class MacGyver:
     def found(self,object_position_x,object_position_y):
         if self.sprite_x == object_position_x and self.sprite_y == object_position_y:
             return True
-            #return object_position_x * settings.SPRITE_SIZE,object_position_y * settings.SPRITE_SIZE
+            
 
 
 

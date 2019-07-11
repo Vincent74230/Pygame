@@ -8,8 +8,11 @@ pygame.init()
 screen = pygame.display.set_mode(settings.SCREEN_SIZE)
 background = pygame.image.load(settings.BACKGROUND).convert()
 
-l = clas.Level()
+level = clas.Level()  
 mac = clas.MacGyver()
+level.rand_objects()
+
+
 
 
 
@@ -33,14 +36,18 @@ while launched:
 
 
 
+    
+    screen.blit(background,(0,0))
+    level.disp_level(screen)
+    screen.blit(mac.macimg,(mac.x,mac.y))
+    if mac.found(level.needle_x,level.needle_y) == True:
+        level.object_found = True
+    if level.object_found == False:
+        screen.blit(level.needle,(level.needle_pixel_x,level.needle_pixel_y))
+    else:
+        screen.blit(level.needle,(13*settings.SPRITE_SIZE,0))
     if mac.level[mac.sprite_x][mac.sprite_y] == 3:
         launched = False
-    screen.blit(background,(0,0))
-    l.disp_level(screen)
-    l.rand_objects(screen)
-    screen.blit(mac.mac,(mac.x,mac.y))
-    if mac.found(l.needle_x,l.needle_y) == True:
-        l.disp_objects(screen)
     pygame.display.update()
 
 
