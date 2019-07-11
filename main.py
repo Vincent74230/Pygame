@@ -10,7 +10,6 @@ background = pygame.image.load(settings.BACKGROUND).convert()
 pygame.display.set_caption("Projet 3 de Vincent : MacGyver")
 arial_font = pygame.font.SysFont("arial",50)
 you_win = arial_font.render("You Won !!!",False,white)
-
 level = clas.Level()  
 mac = clas.MacGyver()
 level.rand_objects()
@@ -43,9 +42,14 @@ while launched:
     if mac.level[mac.sprite_x][mac.sprite_y] == 3:
         if level.object_found == True:
             screen.blit(you_win,(320,320))
+            launched = False
         else:
             launched = False
     pygame.display.update()
 
 
 pygame.quit()
+
+
+
+
