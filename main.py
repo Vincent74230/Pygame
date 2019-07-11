@@ -4,18 +4,16 @@ import clas
 pygame.init()
 
 
-
+white = (255,255,255)
 screen = pygame.display.set_mode(settings.SCREEN_SIZE)
 background = pygame.image.load(settings.BACKGROUND).convert()
+pygame.display.set_caption("Projet 3 de Vincent : MacGyver")
+arial_font = pygame.font.SysFont("arial",50)
+you_win = arial_font.render("You Won !!!",False,white)
 
 level = clas.Level()  
 mac = clas.MacGyver()
 level.rand_objects()
-
-
-
-
-
 
 launched = True
 while launched:
@@ -33,10 +31,6 @@ while launched:
             if event.key == pygame.K_DOWN:
                 mac.moves ('down')
 
-
-
-
-    
     screen.blit(background,(0,0))
     level.disp_level(screen)
     screen.blit(mac.macimg,(mac.x,mac.y))
@@ -47,58 +41,11 @@ while launched:
     else:
         screen.blit(level.needle,(13*settings.SPRITE_SIZE,0))
     if mac.level[mac.sprite_x][mac.sprite_y] == 3:
-        launched = False
-    pygame.display.update()
-
-
-pygame.quit()
-
-
-
-
-
-'''
-import pygame
-import settings
-import clas
-pygame.init()
-black = (0,0,0)
-
-
-screen = pygame.display.set_mode(settings.SCREEN_SIZE)
-background = pygame.image.load(settings.BACKGROUND).convert()
-
-l = clas.Level()
-mac = clas.MacGyver()
-"""
-screen.blit(background,(0,0))
-l.disp_level(screen)
-mac.moves(screen)
-"""
-pygame.display.update()
-
-launched = True
-while launched:
-    
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
+        if level.object_found == True:
+            screen.blit(you_win,(320,320))
+        else:
             launched = False
-        elif event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_RIGHT:
-                mac.moves('right')
-            if event.key == pygame.K_LEFT:
-                mac.moves ('left')
-            if event.key == pygame.K_UP:
-                mac.moves('up')
-            if event.key == pygame.K_DOWN:
-                mac.moves ('down')
-
-    pygame.time.Clock().tick(30)                
-    screen.blit(background,(0,0))
-    l.disp_level(screen)
-    screen.blit(mac.mac,(mac.x,mac.y))
     pygame.display.update()
 
 
 pygame.quit()
-'''
