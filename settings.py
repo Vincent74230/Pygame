@@ -3,7 +3,6 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent
 
-
 SCREEN_SIZE = (645,645)
 
 MACIMG = str(BASE_DIR / 'images' / 'MacGyver.png' )
@@ -12,9 +11,15 @@ WALL = str(BASE_DIR / 'images' / 'wall.png')
 BONES = str(BASE_DIR / 'images' / 'os.png')
 GUARD = str(BASE_DIR / 'images' / 'Gardien.png')
 NEEDLE = str(BASE_DIR / 'images' / 'needle.png')
-
+TUBE = str(BASE_DIR / 'images' / 'tube.png')
+ETHER = str(BASE_DIR / 'images' / 'ether.png')
 SPRITE_SIZE = 43
-
+""" About 'LEVEL' : 0 == a free sqare and reachable by the character.
+                    1 == a wall
+                    2 == decoration
+                    3 == the guard
+                    4 == free zone but not reachable (text zone)
+"""
 LEVEL = [[4,0,1,4,4,4,4,4,4,4,4,4,4,4,1],
          [1,0,1,1,1,1,1,1,1,1,1,1,1,1,4],
          [1,0,0,1,0,1,0,0,1,0,0,0,0,0,1],
@@ -30,9 +35,4 @@ LEVEL = [[4,0,1,4,4,4,4,4,4,4,4,4,4,4,1],
          [1,0,0,1,1,1,1,1,1,0,1,0,1,0,1],
          [1,0,0,0,0,0,0,0,0,0,1,0,0,1,1],
          [1,1,1,1,1,1,1,1,1,1,2,1,0,0,3]]
-""" About 'LEVEL' : 0 == a free sqare and reachable by the character.
-                    1 == a wall
-                    2 == decoration
-                    3 == the guard
-                    4 == free zone but not reachable (text zone)
-"""
+
