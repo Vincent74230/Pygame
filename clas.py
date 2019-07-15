@@ -10,11 +10,14 @@ class Level:
     def __init__(self):
         self.level = settings.LEVEL
         self.object_coordinates = 0
+        self.object_coordinates_pixel = 0
         self.needle_x=0
         self.needle_y=0
         self.needle_pixel_x=0
         self.needle_pixel_y=0
         self.needle = pygame.image.load(settings.NEEDLE).convert_alpha()
+        self.ether = pygame.image.load(settings.ETHER).convert_alpha()
+        self.tube = pygame.image.load(settings.TUBE).convert_alpha()
         self.object_found = False
 
     def disp_level(self,screen):
@@ -41,7 +44,9 @@ class Level:
     def rand_objects(self):
         """ Method that generates the coordinates of 3 objects in reachable areas
         of the labyrinth"""
+
         object_coordinates = [[0,0],[0,0],[0,0]]
+        object_coordinates_pixel = [[0,0],[0,0],[0,0]]
 
         while self.level[object_coordinates[0][0]][object_coordinates[0][1]] != 0:
             object_coordinates[0][0] = random.randint(0,14)
@@ -54,6 +59,12 @@ class Level:
                 
         self.object_coordinates = object_coordinates
         print(self.object_coordinates)
+
+        for i in range (0,3):
+            object_coordinates_pixel[i][0] = (object_coordinates[i][0]) * settings.SPRITE_SIZE
+            object_coordinates_pixel[i][1] = (object_coordinates[i][1]) * settings.SPRITE_SIZE
+        print(object_coordinates_pixel)
+        self.object_coordinates_pixel = object_coordinates_pixel
         while self.level[self.needle_y][self.needle_x] != 0:
             self.needle_x = random.randint (0,14)
             self.needle_y = random.randint (0,14)
