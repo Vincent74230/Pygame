@@ -20,10 +20,6 @@ LOOSE = ARIAL_FONT.render("You loose...", False, WHITE)
 LIST_MESS = [MESSAGE_1, MESSAGE_2, MESSAGE_3]
 YOU_WIN = [WIN]
 YOU_LOOSE = [LOOSE]
-COUNTER_0 = ARIAL_FONT_B.render("Items found : 0/3", False, WHITE)
-COUNTER_1 = ARIAL_FONT_B.render("Items found : 1/3", False, WHITE)
-COUNTER_2 = ARIAL_FONT_B.render("Items found : 2/3", False, WHITE)
-COUNTER_3 = ARIAL_FONT_B.render("Items found : 3/3", False, WHITE)
 
 MACIMG = str(BASE_DIR / 'images' / 'MacGyver.png')
 BACKGROUND = str(BASE_DIR / 'images' / 'fond.png')
