@@ -9,24 +9,23 @@ L'écran doit faire 15 sprites de longueur, le personnage doit se déplacer de c
 
 # TODO list : 
 
-- Générer une fenetre, avec un fond d'écran, faire apparaitre le labyrinthe.(fait)
+- Générer une fenetre, avec un fond d'écran, faire apparaitre le labyrinthe.
 
-- Faire apparaitre MacGyver et gérer des déplacements.(fait)
+- Faire apparaitre MacGyver et gérer des déplacements.
 
-- Faire en sorte que le code soit effectué avec des classes et des méthodes, une classe "character", "level", "random_items", un fichier settings et main (fait)
+- Faire en sorte que le code soit effectué avec des classes et des méthodes, une classe "character", "level", "random_items", un fichier settings et main.
 
-- Gérer les "collisions" entre MacGyver et le décor.(fait, dans la classe perso et méthode 'move')
+- Gérer les "collisions" entre MacGyver et le décor.
 
 - Faire apparaitre le gardien, et gérer la 'collision' avec le perso. fait
 
-- Faire une nouvelle méthode qui recevra la structure du niveau pour connaitre les sprites 'libres et accessibles' et qui fera apparaitre les 3 objets au hasard. fait
+- Faire une nouvelle classe qui recevra la structure du niveau pour connaitre les sprites 'libres et accessibles' et qui fera apparaitre les 3 objets au hasard.
 
-- Faire disparaitre les objets lorsque l'on passe dessus, et les 'stocker' dans un espace en haut de la fenetre, (presque fini : il reste a afficher tous les objets proprement avec une boucle et une liste d'objets) fait 
+- Faire disparaitre les objets lorsque l'on passe dessus, et les 'stocker' dans un espace en haut de la fenetre. 
 
-- Si MacGyver a tous les objets et qu'il se présente sur la position du garde: afficher "You Win !!!", sinon afficher "You loose" et fin du jeu. fait
+- Si MacGyver a tous les objets et qu'il se présente sur la position du garde: afficher "You Win !!!", sinon afficher "You lose" et fin du jeu.
 
-- Faire un compteur qui liste les objets dejà trouvés. (en cours)
 
-- Nettoyer le code (pylint), ajouter de la déco , des commentaires et de la musique si possible.(en cours)
+- Nettoyer le code (pylint), ajouter de la déco et quelques messages de bienvenue.
 
 
