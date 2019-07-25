@@ -7,25 +7,20 @@ Ce projet a été écrit en Python, et à l'aide du module Pygame.
 L'écran doit faire 15 sprites de longueur, le personnage doit se déplacer de cases en cases, les 3 objets doivent apparaitre au hasard dans le labyrinthe, si le héro se présente devant le garde sans les 3 objets il meurt, sinon il gagne, dans les deux cas le programme doit s'arrêter.
 
 
-# TODO list : 
+# Fonctionnement : 
 
-- Générer une fenetre, avec un fond d'écran, faire apparaitre le labyrinthe.
+- Le code source comporte 5 fichiers, 1 dossier images et 3 classes.
 
-- Faire apparaitre MacGyver et gérer des déplacements.
+- La classe "Character" se charge de faire apparaitre le personnage à l'écran et gère ses déplacements, elle gère aussi les "collisions" entre le personnage et le décor.
 
-- Faire en sorte que le code soit effectué avec des classes et des méthodes, une classe "character", "level", "random_items", un fichier settings et main.
+- La classe "Level" est chargée de faire apparaitre le décor, elle affiche également des messages d'information.
 
-- Gérer les "collisions" entre MacGyver et le décor.
+- la classe "Rand_items" génère 3 couples de coordonnées qui correspondent aux objets, elle les affiche à l'écran et compare leurs positions avec celle du personnage, elle passe un booléen de False à True le cas échéant, pour chaque objet trouvé.
 
-- Faire apparaitre le gardien, et gérer la 'collision' avec le perso. fait
+- Le programme comporte un fichier settings qui contient les constantes du jeu, un fichier main qui contient la boucle principale du jeu, et un fichier pour chaque classe.
 
-- Faire une nouvelle classe qui recevra la structure du niveau pour connaitre les sprites 'libres et accessibles' et qui fera apparaitre les 3 objets au hasard.
+- La fin du jeu est gérée dans le fichier main, grâce à une condition et des booléens.
 
-- Faire disparaitre les objets lorsque l'on passe dessus, et les 'stocker' dans un espace en haut de la fenetre. 
-
-- Si MacGyver a tous les objets et qu'il se présente sur la position du garde: afficher "You Win !!!", sinon afficher "You lose" et fin du jeu.
-
-
-- Nettoyer le code (pylint), ajouter de la déco et quelques messages de bienvenue.
+- Que la partie soit gagnée ou perdue, le programme affiche un message et le programme se termine.
 
 
